@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-US">
+{% load static %}
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AVODHA</title>
+    <link rel="stylesheet" href="{% static 'css/components.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsee.css' %}">
+    <link rel="stylesheet" href="{% static 'owl-carousel/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'owl-carousel/owl.theme.css' %}">
+    <!-- CUSTOM STYLE -->
+    <link rel="stylesheet" href="{% static 'css/template-style.css' %}">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}"></script>
+<!--    <script type="text/javascript" src="{% static 'js/validation.js' %}"></script>-->
+  <style>
+
+  .styled {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: blue;
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.styled:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+  </style>
+  </head>
+
+
+
+  <body class="size-1140">
+  	<!-- PREMIUM FEATURES BUTTON -->
+  	<!-- HEADER -->
+    <header role="banner">    
+      <!-- Top Bar -->
+      <div class="top-bar background-white">
+        <div class="line">
+          <div class="s-12 m-6 l-6">
+            <div class="top-bar-contact">
+              <p class="text-size-12">Contact Us: 0800 200 200 | <a class="text-orange-hover" href="mailto:contact@sampledomain.com">contact@sampledomain.com</a></p>
+            </div>
+          </div>
+          <div class="s-12 m-6 l-6">
+            <div class="right">
+              <ul class="top-bar-social right">
+                <li><a href="/"><i class="icon-facebook_circle text-orange-hover"></i></a></li>
+                <li><a href="/"><i class="icon-twitter_circle text-orange-hover"></i></a> </li>
+                <li><a href="/"><i class="icon-google_plus_circle text-orange-hover"></i></a></li>
+                <li><a href="/"><i class="icon-instagram_circle text-orange-hover"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Top Navigation -->
+      <nav class="background-white background-primary-hightlight">
+        <div class="line">
+          <div class="s-12 l-2">
+            <a href="others/home" class="logo"><img src="{% static 'img/logo-free.png' %}" alt=""></a>
+          </div>
+          <div class="top-nav s-12 l-10">
+            <p class="nav-text"></p>
+            <ul class="right chevron">
+              <li><a href="others/home">Home</a></li>
+              <li><a href="registration/register">Register</a></li>
+
+              <li>
+                        {% if user.is_authenticated %}
+                        <a href="registration/logout"> LOGOUT </a>
+                        {% else %}
+                        <a href="registration/login"> LOGIN </a>
+                        {% endif %}
+            </li>
+
+              <li><a href="todo/">TODO</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+    <!-- MAIN -->
+    <main role="main">
+      <!-- Main Carousel -->
+      <section class="section background-dark">
+        <div class="line">
+          <div class="carousel-fade-transition owl-carousel carousel-main carousel-nav-white carousel-wide-arrows">
+            <div class="item">
+              <div class="s-12 center">
+                <img src="{% static 'img/sl-6.jpg' %}" alt="">
+                <div class="carousel-content">
+                  <div class="padding-2x">
+                    <div class="s-12 m-12 l-8">
+                      <p class="text-white text-s-size-20 text-m-size-40 text-l-size-60 margin-bottom-40 text-thin text-line-height-1">AVODHA</p>
+                      <p class="text-white text-size-16 margin-bottom-40"> Today only! Get free shipping on your order, no minimum required. Shop now</p>
+                    </div>                  
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="s-12 center">
+                <img src="{% static 'img/sl-7.jpg' %}" alt="">
+                <div class="carousel-content">
+                  <div class="padding-2x">
+                    <div class="s-12 m-12 l-8">
+                      <p class="text-white text-s-size-20 text-m-size-40 text-l-size-60 margin-bottom-40 text-thin text-line-height-1">AVODHA</p>
+                      <p class="text-white text-size-16 margin-bottom-30">Need a gift ASAP? Our gift cards are 10% off today through Friday, in-store and online.</p>
+                    </div>                  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </section>
+      
+      <!-- Section 1 -->
+
+      <section class="section background-white">
+        <div class="line">
+          <div class="margin">
+            {% for result in results %}
+            <div class="s-12 m-12 l-4 margin-m-bottom">
+              <img class="margin-bottom" style="height:300px;width:300px;" src="{{result.img.url}}" alt="">
+              <h2 class="text-thin"><a href="{% url 'demo_app:detail' result.id %}">{{result.name}}</a></h2>
+
+              </div>
+            {% endfor %}
+
+
+          </div>
+        </div>
+      </section>
+
+      
+
+    </main>
+    
+    <!-- FOOTER -->
+    <footer>
+      <!-- Social -->
+      <div class="background-primary padding text-center">
+        <button class="favorite styled" type="button"><a target="_blank" href="{% url 'demo_app:add' %}" >ADD PRODUCTS</a></button>
+
+
+      </div>
+
+      <!-- Main Footer -->
+
+      <hr class="break margin-top-bottom-0" style="border-color: rgba(0, 38, 51, 0.80);">
+
+      <!-- Bottom Footer -->
+
+    </footer>
+    <script type="text/javascript" src="{% static 'js/responsee.js' %}"></script>
+    <script type="text/javascript" src="{% static 'owl-carousel/owl.carousel.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/template-scripts.js' %}"></script>
+   </body>
+</html>
